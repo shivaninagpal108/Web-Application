@@ -11,23 +11,26 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
+	UserValidation user = new UserValidation();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
-		String password = request.getParameter("password");
-		request.setAttribute("name", name);
+		final String name = request.getParameter("name");
+		final String password = request.getParameter("password");
 		//Case 1 -> If username and password is correct -> Welcome.jsp
 		//Case 2 -> If username and passowrd is incorrect -> Error.jsp
-		if(name.equals("Shivani") && password.equals("shanu"))
+		boolean isUserValid = user.isUserValid(name,password);
+		if(isUserValid)
 		{
+			request.setAttribute("name", name);
 			request.getRequestDispatcher("/WEB-INF/View/Welcome.jsp").forward(request, response);
 		}
 		else
 		{
-			request.getRequestDispatcher("/WEB-INF/View/Error.jsp").forward(request, response);
+			request.setAttribute("errorMessage","Oops..Wrong username or password entered, please try again");
+			request.getRequestDispatcher("/WEB-INF/View/Login.jsp").forward(request, response);
 		}	
 	}
 

@@ -9,9 +9,11 @@
 <body>
 <h1>Welcome to the Web Application Login</h1>
 <form action="loginServlet" method="post">
+<h2><font color="red">${errorMessage}</font></h2>
 Enter your name: <input type="text" name="name"><br>
 Enter your password: <input type="password" name="password"><br>
 <input type ="submit" value="Login">
+
 </form>
 </body>
 </html>
