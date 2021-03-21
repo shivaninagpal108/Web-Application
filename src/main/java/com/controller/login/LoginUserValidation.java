@@ -1,6 +1,6 @@
-package Controller;
+package com.controller.login;
 
-public class UserValidation 
+public class LoginUserValidation 
 {
 	boolean isUserValid(String name, String password)
 	{

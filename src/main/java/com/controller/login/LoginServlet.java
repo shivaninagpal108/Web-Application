@@ -1,4 +1,4 @@
-package Controller;
+package com.controller.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,23 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.controller.todo.WelcomeTodoService;
+
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
-	UserValidation user = new UserValidation();
-
+	LoginUserValidation userValidationService = new LoginUserValidation();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		final String name = request.getParameter("name");
 		final String password = request.getParameter("password");
-		//Case 1 -> If username and password is correct -> Welcome.jsp
-		//Case 2 -> If username and passowrd is incorrect -> Error.jsp
-		boolean isUserValid = user.isUserValid(name,password);
+		//Case 1 -> If username and password is correct -> WelcomeTodo.jsp
+		//Case 2 -> If username and passowrd is incorrect -> Login.jsp with error message
+		boolean isUserValid = userValidationService.isUserValid(name,password);
 		if(isUserValid)
 		{
-			request.setAttribute("name", name);
-			request.getRequestDispatcher("/WEB-INF/View/Welcome.jsp").forward(request, response);
+			response.sendRedirect(request.getContextPath()+"/todo.do");
 		}
 		else
 		{
@@ -33,5 +33,4 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/View/Login.jsp").forward(request, response);
 		}	
 	}
-
 }

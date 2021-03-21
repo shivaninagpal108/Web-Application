@@ -13,7 +13,6 @@
 Enter your name: <input type="text" name="name"><br>
 Enter your password: <input type="password" name="password"><br>
 <input type ="submit" value="Login">
-
 </form>
 </body>
 </html>
