@@ -16,4 +16,12 @@ public class WelcomeTodoService {
 	public List<WelcomeTodo> retreiveTodos(){
 		return todos;
 	}
+	public void addTodo(WelcomeTodo todo)
+	{
+		todos.add(todo);
+	}
+	public void deleteTodo(WelcomeTodo todo)
+	{
+		todos.remove(todo);
+	}
 }

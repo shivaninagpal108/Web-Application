@@ -13,7 +13,7 @@ import com.controller.todo.WelcomeTodoService;
 
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
-	LoginUserValidation userValidationService = new LoginUserValidation();
+	private LoginUserValidation userValidationService = new LoginUserValidation();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
@@ -25,6 +25,7 @@ public class LoginServlet extends HttpServlet {
 		boolean isUserValid = userValidationService.isUserValid(name,password);
 		if(isUserValid)
 		{
+			request.getSession().setAttribute("name",name);
 			response.sendRedirect(request.getContextPath()+"/todo.do");
 		}
 		else
