@@ -21,11 +21,12 @@
 		<a href="/" class="navbar-brand">Brand</a>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Home</a></li>
-			<li><a href="/todo.do">Todos</a></li>
+			<!-- change below functioality, user cant go to todo before login -->
+			<li><a href="<%=request.getContextPath()%>/list-todo.do">Todos</a></li>
 			<li><a href="http://www.Web_Application.com">Application</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="//loginServlet">Login</a></li>
+			<li><a href="#">Login</a></li>
 		</ul>
 	</nav>
 	<div class="container">
@@ -39,7 +40,7 @@
 			</li>
 		</c:forEach>
 		</ol>
-		<form action="todo.do" method="post">
+		<form action="add-todo.do" method="post">
 			New Todo: <input type="text" name="newTodo">
 			<input type="submit" value="Submit Todo">
 		</form>

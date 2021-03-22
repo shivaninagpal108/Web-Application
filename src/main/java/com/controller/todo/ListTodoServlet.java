@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/todo.do")
-public class WelcomeTodoServlet extends HttpServlet 
+@WebServlet("/list-todo.do")
+public class ListTodoServlet extends HttpServlet 
 {
 	private WelcomeTodoService userTodoService = new WelcomeTodoService();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
@@ -21,7 +21,7 @@ public class WelcomeTodoServlet extends HttpServlet
 	{
 		String newTodo = request.getParameter("newTodo");
 		userTodoService.addTodo(new WelcomeTodo(newTodo));
-		response.sendRedirect(request.getContextPath()+"/todo.do");
+		response.sendRedirect(request.getContextPath()+"/list-todo.do");
 	}
 
 }
