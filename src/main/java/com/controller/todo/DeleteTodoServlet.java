@@ -13,8 +13,8 @@ public class DeleteTodoServlet extends HttpServlet
 	private WelcomeTodoService userTodoService = new WelcomeTodoService();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		String deleteTodo = request.getParameter("deleteTodo");
-		userTodoService.deleteTodo(new WelcomeTodo(deleteTodo));
+		final int deleteTodo = Integer.valueOf(request.getParameter("index"));
+		userTodoService.deleteTodo(deleteTodo);
 		response.sendRedirect(request.getContextPath()+"/todo.do");
 	}
 }

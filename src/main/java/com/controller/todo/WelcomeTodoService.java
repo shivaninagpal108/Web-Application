@@ -20,8 +20,8 @@ public class WelcomeTodoService {
 	{
 		todos.add(todo);
 	}
-	public void deleteTodo(WelcomeTodo todo)
+	public void deleteTodo(int index)
 	{
-		todos.remove(todo);
+		todos.remove(index);
 	}
 }

@@ -4,25 +4,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>My Web Application</title>
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+	.footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 60px;
+		background-color: #f5f5f5;
+	}
+</style>
 </head>
 <body>
-<h1>Welcome to the Web Application </h1>
-<p>Hi ${name}</p>
-<p>Login is successful</p>
-<p>Your learning Todo's are: </p>
-<ol>
-	<c:forEach items="${todos}" var="todo">
-		<li>
-			${todo.name} &nbsp; &nbsp;
-			<a href="<%=request.getContextPath()%>/delete-todo.do?deleteTodo=${todo.name}">Delete</a>
-		</li>
-	</c:forEach>
-</ol>
-<form action="todo.do" method="post">
-	<input type="text" name="newTodo">
-	<input type="submit" value="Add Todo">
-</form>
+	<nav class="navbar navbar-default">
+		<a href="/" class="navbar-brand">Brand</a>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="/todo.do">Todos</a></li>
+			<li><a href="http://www.Web_Application.com">Application</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="//loginServlet">Login</a></li>
+		</ul>
+	</nav>
+	<div class="container">
+		<h1>Welcome ${name}</h1>
+		<p>Your Todo's are: </p>
+		<ol>
+			<c:forEach items="${todos}" var="todo" varStatus="todoloop">
+			<li>
+				${todo.name} &nbsp; &nbsp;
+				<a href="<%=request.getContextPath()%>/delete-todo.do?index=${todoloop.index}">Delete</a>
+			</li>
+		</c:forEach>
+		</ol>
+		<form action="todo.do" method="post">
+			New Todo: <input type="text" name="newTodo">
+			<input type="submit" value="Submit Todo">
+		</form>
+	</div>
+	<footer class="footer">
+		<div>footer content</div>
+	</footer>
+	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>
