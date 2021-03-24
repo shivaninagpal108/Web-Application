@@ -3,7 +3,8 @@ package com.controller.todo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WelcomeTodoService {
+public class WelcomeTodoService 
+{
 	private static final List<WelcomeTodo> todos = new ArrayList<WelcomeTodo>();
 	static
 	{

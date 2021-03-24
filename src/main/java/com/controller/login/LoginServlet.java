@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.controller.todo.WelcomeTodoService;
 
-@WebServlet("/loginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet 
+{
 	private LoginUserValidation userValidationService = new LoginUserValidation();
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		final String name = request.getParameter("name");
 		final String password = request.getParameter("password");
 		//Case 1 -> If username and password is correct -> WelcomeTodo.jsp

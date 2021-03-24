@@ -1,20 +1,22 @@
-package com.controller.todo;
+package com.controller.logout;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/list-todo.do")
-public class ListTodoServlet extends HttpServlet 
+import com.controller.todo.WelcomeTodoService;
+
+@WebServlet("/logout")
+public class LogoutServlet extends HttpServlet 
 {
-	private WelcomeTodoService userTodoService = new WelcomeTodoService();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		request.setAttribute("todos", userTodoService.retreiveTodos());
-		request.getRequestDispatcher("/WEB-INF/View/WelcomeTodo.jsp").forward(request, response);
-		
+		request.getSession().invalidate();
+		request.getRequestDispatcher("/WEB-INF/View/Login.jsp").forward(request,response);
 	}
 }

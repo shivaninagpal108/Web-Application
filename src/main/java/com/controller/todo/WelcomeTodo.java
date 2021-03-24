@@ -8,18 +8,22 @@ public class WelcomeTodo
 		super();
 		this.name = name;
 	}
-	public String getName() {
+	public String getName() 
+	{
 		return name;
 	}
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "Todo [name=" + name + "]";
 	}
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) 
+	{
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -27,7 +31,8 @@ public class WelcomeTodo
 		if (getClass() != obj.getClass())
 			return false;
 		WelcomeTodo other = (WelcomeTodo) obj;
-		if (name == null) {
+		if (name == null) 
+		{
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
