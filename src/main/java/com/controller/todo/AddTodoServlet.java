@@ -11,11 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 public class AddTodoServlet extends HttpServlet 
 {
 	private WelcomeTodoService userTodoService = new WelcomeTodoService();
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		request.getRequestDispatcher("/WEB-INF/View/AddTodo.jsp").forward(request,response);
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		String newTodo = request.getParameter("newTodo");
-		userTodoService.addTodo(new WelcomeTodo(newTodo));
+		String newTodoName = request.getParameter("newTodoName");
+		String newTodoCategory = request.getParameter("newTodoCategory");
+		userTodoService.addTodo(new WelcomeTodo(newTodoName,newTodoCategory));
 		response.sendRedirect(request.getContextPath()+"/list-todo.do");
 	}
 

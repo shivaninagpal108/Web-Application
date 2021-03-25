@@ -20,8 +20,8 @@
 	<nav class="navbar navbar-default">
 		<a href="/" class="navbar-brand">Brand</a>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="<%=request.getContextPath()%>/list-todo.do">Todos</a></li>
+			<li><a href="<%=request.getContextPath()%>/welcome">Home</a></li>
+			<li class="active"><a href="#">Todos</a></li>
 			<li><a href="http://www.Web_Application.com">Application</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
@@ -29,20 +29,24 @@
 		</ul>
 	</nav>
 	<div class="container">
-		<h1>Welcome ${name}</h1>
-		<p>Your Todo's are: </p>
-		<ol>
-			<c:forEach items="${todos}" var="todo" varStatus="todoloop">
-			<li>
-				${todo.name} &nbsp; &nbsp;
-				<a href="<%=request.getContextPath()%>/delete-todo.do?index=${todoloop.index}">Delete</a>
-			</li>
-		</c:forEach>
-		</ol>
-		<form action="add-todo.do" method="post">
-			New Todo: <input type="text" name="newTodo">
-			<input type="submit" value="Submit Todo">
-		</form>
+		<h3>Your Todo's are: </h3>
+		<table class="table table-striped">
+			<thead>
+				<th>Description</th>
+				<th>Category</th>
+				<th>Actions</th>
+			</thead>
+			<tbody>
+				<c:forEach items="${todos}" var="todo" varStatus="todoloop">
+					<tr>
+						<td>${todo.name}</td>
+						<td>${todo.category}</td>
+						<td><a class="btn btn-danger" href="<%=request.getContextPath()%>/delete-todo.do?index=${todoloop.index}">Delete</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<a class="btn btn-success" href="<%=request.getContextPath()%>/add-todo.do">Add New Todo</a>
 	</div>
 	<footer class="footer">
 		<div>@2021 My Web Application, Inc. All rights reserved</div>

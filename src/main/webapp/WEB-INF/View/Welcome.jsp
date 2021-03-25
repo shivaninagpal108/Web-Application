@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -16,29 +17,20 @@
 </style>
 </head>
 <body>
-<nav class="navbar navbar-default">
-		<a href="#" class="navbar-brand">Brand</a>
+	<nav class="navbar navbar-default">
+		<a href="/" class="navbar-brand">Brand</a>
 		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="<%=request.getContextPath()%>/list-todo.do">Todos</a></li>
 			<li><a href="http://www.Web_Application.com">Application</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li class="active"><a href="login">Login</a></li>
+			<li><a href="<%=request.getContextPath()%>/logout">Logout</a></li>
 		</ul>
 	</nav>
 	<div class="container">
-		<h1>Welcome to the Web Application Login</h1>
-		<form action="login" method="post">
-			<h2><font color="red">${errorMessage}</font></h2>
-			<fieldset  class="form-group">
-				<label>Enter your name</label>
-				<input class="form-control" type="text" name="name">
-			</fieldset>
-			<fieldset class="form-group">
-				<label>Enter your password</label>
-				<input class="form-control" type="password" name="password"><br>
-			</fieldset>
-			<input class= "btn btn-success" type ="submit" value="Login">
-		</form>
+		<h1>Welcome ${name}</h1>
+		
 	</div>
 	<footer class="footer">
 		<div>@2021 My Web Application, Inc. All rights reserved</div>

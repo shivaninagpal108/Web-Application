@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet
 		if(isUserValid)
 		{
 			request.getSession().setAttribute("name",name);
-			response.sendRedirect(request.getContextPath()+"/list-todo.do");
+			response.sendRedirect(request.getContextPath()+"/welcome");
 		}
 		else
 		{

@@ -25,11 +25,10 @@ public class LoginRequiredFilter implements Filter
 		if(request.getSession().getAttribute("name")!=null)
 		{
 			chain.doFilter(request, response);
-			//System.out.println(request.getRequestURI());
 		}
 		else
 		{
-			request.getRequestDispatcher(request.getContextPath()+"/login.do").forward(servletRequest,servletResponse);
+			request.getRequestDispatcher(request.getContextPath()+"/login").forward(servletRequest,servletResponse);
 		}
 	}
     @Override

@@ -8,11 +8,11 @@ public class WelcomeTodoService
 	private static final List<WelcomeTodo> todos = new ArrayList<WelcomeTodo>();
 	static
 	{
-		todos.add(new WelcomeTodo("Learn Application Development"));
-		todos.add(new WelcomeTodo("Learn Spring MVC"));
-		todos.add(new WelcomeTodo("Learn Hibernate"));
-		todos.add(new WelcomeTodo("Learn Restful Services"));
-		todos.add(new WelcomeTodo("Learn Microservices"));
+		todos.add(new WelcomeTodo("Learn Application Development","Study"));
+		todos.add(new WelcomeTodo("Learn Spring MVC","Study"));
+		todos.add(new WelcomeTodo("Learn Hibernate","Study"));
+		todos.add(new WelcomeTodo("Learn Restful Services","Study"));
+		todos.add(new WelcomeTodo("Learn Microservices","Study"));
 	}
 	public List<WelcomeTodo> retreiveTodos(){
 		return todos;

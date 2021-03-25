@@ -3,10 +3,12 @@ package com.controller.todo;
 public class WelcomeTodo 
 {
 	private String name;
-	public WelcomeTodo(String name) 
+	private String category;
+	public WelcomeTodo(String name,String category) 
 	{
 		super();
 		this.name = name;
+		this.category = category;
 	}
 	public String getName() 
 	{
@@ -16,10 +18,18 @@ public class WelcomeTodo
 	{
 		this.name = name;
 	}
+	public String getCategory() 
+	{
+		return category;
+	}
+	public void setCategory(String category) 
+	{
+		this.category = category;
+	}
 	@Override
 	public String toString() 
 	{
-		return "Todo [name=" + name + "]";
+		return "WelcomeTodo [name=" + name + ", category=" + category + "]";
 	}
 	@Override
 	public boolean equals(Object obj) 
